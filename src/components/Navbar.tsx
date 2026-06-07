@@ -79,7 +79,11 @@ export default function Navbar() {
               {t.nav[link.key]}
             </a>
           ))}
-          <a href="#contact" className="btn btn--primary navbar__cta" onClick={close}>
+          <a
+            href={`tel:${brand.phone.replace(/\s/g, '')}`}
+            className="btn btn--primary navbar__cta"
+            onClick={close}
+          >
             {t.nav.book}
           </a>
         </nav>

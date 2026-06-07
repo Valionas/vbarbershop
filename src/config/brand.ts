@@ -31,6 +31,8 @@ export const brand = {
   email: 'book@vbarbershop.io',
   address: '12 Vitosha Blvd, 1000 Sofia, Bulgaria',
   mapsUrl: 'https://maps.google.com/?q=12+Vitosha+Blvd+Sofia+Bulgaria',
+  /** Coordinates for the embedded mini-map in the Visit Us card. */
+  geo: { lat: 42.6936, lng: 23.3201 },
 
   social: {
     instagram: 'https://instagram.com/vbarbershop',
@@ -38,12 +40,13 @@ export const brand = {
     tiktok: 'https://tiktok.com/@vbarbershop',
   },
 
-  // ── Opening hours (labels are translated, values are not) ───────────
+  // ── Opening hours ─────────────────────────────────────────────────────
+  // Structured so the site can show a live "Open now / Closed" status.
+  // `null` = closed that day (renders the translated word "Closed").
   hours: {
-    weekdays: '09:00 – 20:00',
-    saturday: '10:00 – 18:00',
-    /** `null` renders the translated word "Closed". */
-    sunday: null as string | null,
+    weekdays: { open: '09:00', close: '20:00' } as { open: string; close: string } | null,
+    saturday: { open: '10:00', close: '18:00' } as { open: string; close: string } | null,
+    sunday: null as { open: string; close: string } | null,
   },
 
   // ── About-section stats ──────────────────────────────────────────────

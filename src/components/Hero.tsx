@@ -44,7 +44,7 @@ export default function Hero() {
         </h1>
         <p className="hero__subtitle">{t.hero.subtitle}</p>
         <div className="hero__ctas">
-          <a href="#contact" className="btn btn--primary btn--lg">
+          <a href={`tel:${brand.phone.replace(/\s/g, '')}`} className="btn btn--primary btn--lg">
             {t.hero.ctaPrimary}
           </a>
           <a href="#work" className="btn btn--ghost btn--lg">
