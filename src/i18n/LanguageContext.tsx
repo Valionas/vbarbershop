@@ -11,7 +11,7 @@ interface LanguageContextValue {
 
 const LanguageContext = createContext<LanguageContextValue | null>(null)
 
-function detectInitialLang(): Lang {
+function detectLang(): Lang {
   try {
     const stored = localStorage.getItem('lang')
     if (stored && languages.some((l) => l.code === stored)) return stored as Lang
@@ -24,17 +24,29 @@ function detectInitialLang(): Lang {
 }
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [lang, setLangState] = useState<Lang>(detectInitialLang)
+  // Start with 'en' so the server-prerendered HTML and the first client
+  // render match (hydration-safe); detect the real language after mount.
+  const [lang, setLangState] = useState<Lang>('en')
+  const [hydrated, setHydrated] = useState(false)
+
+  useEffect(() => {
+    // Intentional one-time post-hydration sync (React's documented pattern
+    // for server/client content differences) — runs once, renders twice max.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setLangState(detectLang())
+    setHydrated(true)
+  }, [])
 
   // Keep the document language and SEO meta in sync with the active language.
   useEffect(() => {
+    if (!hydrated) return
     const t = translations[lang]
     document.documentElement.lang = lang
     document.title = t.meta.title
     document
       .querySelector('meta[name="description"]')
       ?.setAttribute('content', t.meta.description)
-  }, [lang])
+  }, [lang, hydrated])
 
   const setLang = useCallback((next: Lang) => {
     setLangState(next)
