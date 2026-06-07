@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Get-ChildItem *)",
+      "Bash(npm test)",
+      "PowerShell(npm test)",
+      "Bash(npm run typecheck)",
+      "PowerShell(npm run typecheck)",
+      "Bash(npm run lint)",
+      "PowerShell(npm run lint)",
+      "Bash(git fetch *)"
+    ]
+  }
+}

@@ -6,12 +6,13 @@
 
 export type Lang = 'en' | 'bg' | 'de' | 'fr' | 'es'
 
+/** `flag` is a filename in /public/flags (ISO country code). */
 export const languages: { code: Lang; label: string; flag: string }[] = [
-  { code: 'en', label: 'English', flag: '🇬🇧' },
-  { code: 'bg', label: 'Български', flag: '🇧🇬' },
-  { code: 'de', label: 'Deutsch', flag: '🇩🇪' },
-  { code: 'fr', label: 'Français', flag: '🇫🇷' },
-  { code: 'es', label: 'Español', flag: '🇪🇸' },
+  { code: 'en', label: 'English', flag: 'gb' },
+  { code: 'bg', label: 'Български', flag: 'bg' },
+  { code: 'de', label: 'Deutsch', flag: 'de' },
+  { code: 'fr', label: 'Français', flag: 'fr' },
+  { code: 'es', label: 'Español', flag: 'es' },
 ]
 
 const en = {

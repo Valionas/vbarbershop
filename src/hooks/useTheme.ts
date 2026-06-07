@@ -11,6 +11,10 @@ export function useTheme() {
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme
+    // Keep the mobile browser chrome color in sync with the theme.
+    document
+      .querySelector('meta[name="theme-color"]')
+      ?.setAttribute('content', theme === 'dark' ? '#141210' : '#f5f1e8')
     try {
       localStorage.setItem('theme', theme)
     } catch {
