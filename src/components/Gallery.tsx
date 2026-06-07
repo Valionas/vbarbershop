@@ -15,10 +15,10 @@ export default function Gallery() {
         </Reveal>
 
         <div className="gallery__grid">
-          {brand.images.gallery.map((src, i) => (
-            <Reveal key={src + i} delay={(i % 4) * 80} className="gallery__cell">
+          {brand.images.gallery.map((item, i) => (
+            <Reveal key={item.src} delay={(i % 4) * 80} className="gallery__cell">
               <figure className="gallery__item">
-                <img src={src} alt={`${brand.name} work ${i + 1}`} loading="lazy" />
+                <img src={item.src} alt={item.alt} loading="lazy" decoding="async" />
                 <figcaption className="gallery__overlay">
                   <span>{String(i + 1).padStart(2, '0')}</span>
                 </figcaption>

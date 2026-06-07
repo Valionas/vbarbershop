@@ -16,7 +16,12 @@ export default function About() {
       <div className="container about__grid">
         <Reveal className="about__media">
           <div className="about__frame">
-            <img src={brand.images.about} alt={`${brand.name} barber at work`} loading="lazy" />
+            <img
+              src={brand.images.about}
+              alt="Master barber trimming a client's beard with scissors in moody shop lighting"
+              loading="lazy"
+              decoding="async"
+            />
           </div>
         </Reveal>
 

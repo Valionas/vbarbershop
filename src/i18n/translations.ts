@@ -16,6 +16,12 @@ export const languages: { code: Lang; label: string; flag: string }[] = [
 ]
 
 const en = {
+  meta: {
+    title: 'V Barbershop — Sharp looks. Timeless craft.',
+    description:
+      'Precision cuts, classic hot towel shaves and modern styling by master barbers in Sofia. Book your chair at V Barbershop.',
+  },
+  skip: 'Skip to content',
   nav: {
     home: 'Home',
     about: 'About us',
@@ -96,6 +102,12 @@ const en = {
 export type Dict = typeof en
 
 const bg: Dict = {
+  meta: {
+    title: 'V Barbershop — Остър стил. Вечен занаят.',
+    description:
+      'Прецизни подстригвания, класическо бръснене и модерен стайлинг от майстори бръснари в София. Запази час във V Barbershop.',
+  },
+  skip: 'Към съдържанието',
   nav: {
     home: 'Начало',
     about: 'За нас',
@@ -174,6 +186,12 @@ const bg: Dict = {
 }
 
 const de: Dict = {
+  meta: {
+    title: 'V Barbershop — Scharfer Look. Zeitloses Handwerk.',
+    description:
+      'Präzise Schnitte, klassische Heißtuch-Rasuren und modernes Styling von Meisterbarbieren in Sofia. Jetzt Termin buchen.',
+  },
+  skip: 'Zum Inhalt springen',
   nav: {
     home: 'Start',
     about: 'Über uns',
@@ -252,6 +270,12 @@ const de: Dict = {
 }
 
 const fr: Dict = {
+  meta: {
+    title: 'V Barbershop — Style affûté. Savoir-faire intemporel.',
+    description:
+      'Coupes de précision, rasages classiques et coiffage moderne par des maîtres barbiers à Sofia. Réservez votre fauteuil.',
+  },
+  skip: 'Aller au contenu',
   nav: {
     home: 'Accueil',
     about: 'À propos',
@@ -330,6 +354,12 @@ const fr: Dict = {
 }
 
 const es: Dict = {
+  meta: {
+    title: 'V Barbershop — Estilo afilado. Oficio eterno.',
+    description:
+      'Cortes de precisión, afeitados clásicos y estilismo moderno de maestros barberos en Sofía. Reserva tu silla.',
+  },
+  skip: 'Saltar al contenido',
   nav: {
     home: 'Inicio',
     about: 'Nosotros',

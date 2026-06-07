@@ -2,14 +2,48 @@
 <html lang="en" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="%BASE_URL%favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="theme-color" content="#141210" />
+
+    <!-- Primary SEO (localized variants are applied at runtime per language) -->
+    <title>V Barbershop — Sharp looks. Timeless craft.</title>
     <meta
       name="description"
-      content="V Barbershop — precision cuts, classic hot towel shaves and modern styling by master barbers."
+      content="Precision cuts, classic hot towel shaves and modern styling by master barbers in Sofia. Book your chair at V Barbershop."
     />
-    <title>V Barbershop — Sharp looks. Timeless craft.</title>
+    <link rel="canonical" href="https://valionas.github.io/vbarbershop/" />
+
+    <!-- Open Graph (Facebook / Meta / LinkedIn / WhatsApp previews) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="V Barbershop" />
+    <meta property="og:title" content="V Barbershop — Sharp looks. Timeless craft." />
+    <meta
+      property="og:description"
+      content="Precision cuts, classic hot towel shaves and modern styling by master barbers in Sofia. Book your chair."
+    />
+    <meta property="og:url" content="https://valionas.github.io/vbarbershop/" />
+    <meta property="og:image" content="https://valionas.github.io/vbarbershop/images/hero.jpg" />
+    <meta property="og:image:width" content="1600" />
+    <meta property="og:image:height" content="1066" />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:locale:alternate" content="bg_BG" />
+    <meta property="og:locale:alternate" content="de_DE" />
+    <meta property="og:locale:alternate" content="fr_FR" />
+    <meta property="og:locale:alternate" content="es_ES" />
+
+    <!-- Twitter / X card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="V Barbershop — Sharp looks. Timeless craft." />
+    <meta
+      name="twitter:description"
+      content="Precision cuts, classic hot towel shaves and modern styling by master barbers in Sofia."
+    />
+    <meta name="twitter:image" content="https://valionas.github.io/vbarbershop/images/hero.jpg" />
+
+    <!-- Icons & manifest (root-absolute: Vite rebases these onto the deploy base) -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/icons/icon-180.png" />
+    <link rel="manifest" href="/site.webmanifest" />
 
     <!-- Set theme before first paint to avoid a flash of the wrong theme -->
     <script>
@@ -21,12 +55,57 @@
       } catch (e) {}
     </script>
 
+    <!-- Performance: hero image is the LCP element — fetch it immediately -->
+    <link rel="preload" as="image" href="/images/hero.jpg" fetchpriority="high" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Structured data: local-business rich results (hours, location, contact) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BarberShop",
+        "name": "V Barbershop",
+        "description": "Precision cuts, classic hot towel shaves and modern styling by master barbers.",
+        "url": "https://valionas.github.io/vbarbershop/",
+        "image": "https://valionas.github.io/vbarbershop/images/hero.jpg",
+        "telephone": "+359881234567",
+        "email": "book@vbarbershop.io",
+        "priceRange": "€12–€32",
+        "foundingDate": "2016",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "12 Vitosha Blvd",
+          "addressLocality": "Sofia",
+          "postalCode": "1000",
+          "addressCountry": "BG"
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "09:00",
+            "closes": "20:00"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": "Saturday",
+            "opens": "10:00",
+            "closes": "18:00"
+          }
+        ],
+        "sameAs": [
+          "https://instagram.com/vbarbershop",
+          "https://facebook.com/vbarbershop",
+          "https://tiktok.com/@vbarbershop"
+        ]
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>

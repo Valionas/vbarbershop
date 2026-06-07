@@ -93,6 +93,38 @@ a {
   text-decoration: none;
 }
 
+/* Brand-colored text selection */
+::selection {
+  background: rgba(201, 162, 75, 0.35);
+}
+
+/* Visible keyboard focus everywhere (Apple HIG / WCAG 2.4.7) */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Skip link: hidden until focused, then drops in from the top */
+.skip-link {
+  position: fixed;
+  top: -100px;
+  left: 16px;
+  z-index: 300;
+  padding: 12px 22px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--accent-contrast);
+  font-weight: 600;
+  font-size: 0.9rem;
+  box-shadow: var(--shadow-deep);
+  transition: top 0.3s var(--ease-out);
+}
+
+.skip-link:focus {
+  top: 12px;
+}
+
 .container {
   width: min(var(--container), 92vw);
   margin-inline: auto;
@@ -120,6 +152,7 @@ a {
   font-size: clamp(2rem, 4.5vw, 3.2rem);
   line-height: 1.12;
   letter-spacing: -0.01em;
+  text-wrap: balance;
 }
 
 .section__text {
@@ -160,6 +193,10 @@ a {
     background-color 0.3s ease,
     border-color 0.3s ease,
     color 0.3s ease;
+}
+
+.btn:active {
+  transform: translateY(-1px) scale(0.97);
 }
 
 .btn--lg {
@@ -300,11 +337,13 @@ a {
   transition: transform 0.35s var(--ease-out);
 }
 
-.navbar__links > a:not(.btn):hover {
+.navbar__links > a:not(.btn):hover,
+.navbar__links > a.is-active:not(.btn) {
   color: var(--text);
 }
 
-.navbar__links > a:not(.btn):hover::after {
+.navbar__links > a:not(.btn):hover::after,
+.navbar__links > a.is-active:not(.btn)::after {
   transform: scaleX(1);
   transform-origin: left;
 }
@@ -323,8 +362,8 @@ a {
 .icon-btn {
   display: grid;
   place-items: center;
-  width: 40px;
-  height: 40px;
+  width: 44px; /* Apple HIG minimum touch target */
+  height: 44px;
   border: 1px solid var(--line);
   border-radius: 50%;
   background: transparent;
@@ -1105,6 +1144,7 @@ a {
   display: flex;
   align-items: center;
   gap: 10px;
+  min-height: 44px; /* Apple HIG minimum touch target */
   padding: 10px 16px;
   border: 1px solid var(--line);
   border-radius: 999px;

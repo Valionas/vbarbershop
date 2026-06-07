@@ -16,6 +16,24 @@ export default function Navbar() {
   const { theme, toggle } = useTheme()
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
+  const [active, setActive] = useState('home')
+
+  // Scrollspy: highlight the nav link of the section in view.
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) setActive(entry.target.id)
+        }
+      },
+      { rootMargin: '-40% 0px -55% 0px' },
+    )
+    for (const link of LINKS) {
+      const el = document.getElementById(link.id)
+      if (el) observer.observe(el)
+    }
+    return () => observer.disconnect()
+  }, [])
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24)
@@ -51,7 +69,13 @@ export default function Navbar() {
 
         <nav className={`navbar__links ${open ? 'navbar__links--open' : ''}`}>
           {LINKS.map((link) => (
-            <a key={link.id} href={`#${link.id}`} onClick={close}>
+            <a
+              key={link.id}
+              href={`#${link.id}`}
+              onClick={close}
+              className={active === link.id ? 'is-active' : undefined}
+              aria-current={active === link.id ? 'true' : undefined}
+            >
               {t.nav[link.key]}
             </a>
           ))}

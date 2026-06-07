@@ -59,18 +59,19 @@ export const brand = {
   // ── Imagery ──────────────────────────────────────────────────────────
   // Files live in /public/images — replace them (same names) or point
   // these paths elsewhere to rebrand. External URLs also work.
+  // Alt texts are descriptive on purpose: they feed image SEO + a11y.
   images: {
     hero: asset('images/hero.jpg'),
     about: asset('images/about.jpg'),
     gallery: [
-      asset('images/work-1.jpg'),
-      asset('images/work-2.jpg'),
-      asset('images/work-3.jpg'),
-      asset('images/work-4.jpg'),
-      asset('images/work-5.jpg'),
-      asset('images/work-6.jpg'),
-      asset('images/work-7.jpg'),
-      asset('images/work-8.jpg'),
+      { src: asset('images/work-1.jpg'), alt: 'Straight razor detailing on a skin fade haircut' },
+      { src: asset('images/work-2.jpg'), alt: 'Barber blow-drying and styling a textured crop' },
+      { src: asset('images/work-3.jpg'), alt: 'Professional clippers, scissors and grooming products on a slate mat' },
+      { src: asset('images/work-4.jpg'), alt: 'Tattooed barber scissor-cutting a modern textured haircut' },
+      { src: asset('images/work-5.jpg'), alt: 'Beard trim with scissors during a hot towel ritual' },
+      { src: asset('images/work-6.jpg'), alt: 'Barber finishing a classic cut at the mirror station' },
+      { src: asset('images/work-7.jpg'), alt: 'Precision afro fade in progress at the chair' },
+      { src: asset('images/work-8.jpg'), alt: 'Classic barbering scene with straight razor, monochrome' },
     ],
   },
 } as const

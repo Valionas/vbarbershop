@@ -1,4 +1,4 @@
-import { createContext, useCallback, useContext, useMemo, useState } from 'react'
+import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react'
 import type { ReactNode } from 'react'
 import { translations, languages } from './translations'
 import type { Dict, Lang } from './translations'
@@ -26,9 +26,18 @@ function detectInitialLang(): Lang {
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [lang, setLangState] = useState<Lang>(detectInitialLang)
 
+  // Keep the document language and SEO meta in sync with the active language.
+  useEffect(() => {
+    const t = translations[lang]
+    document.documentElement.lang = lang
+    document.title = t.meta.title
+    document
+      .querySelector('meta[name="description"]')
+      ?.setAttribute('content', t.meta.description)
+  }, [lang])
+
   const setLang = useCallback((next: Lang) => {
     setLangState(next)
-    document.documentElement.lang = next
     try {
       localStorage.setItem('lang', next)
     } catch {
