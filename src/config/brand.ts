@@ -28,6 +28,8 @@ export const brand = {
 
   // ── Contact ──────────────────────────────────────────────────────────
   phone: '+359 88 123 4567',
+  /** WhatsApp deep link — wa.me/<phone without + or spaces>. */
+  whatsapp: 'https://wa.me/359881234567',
   email: 'book@vbarbershop.io',
   address: '12 Vitosha Blvd, 1000 Sofia, Bulgaria',
   mapsUrl: 'https://maps.google.com/?q=12+Vitosha+Blvd+Sofia+Bulgaria',

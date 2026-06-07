@@ -95,6 +95,8 @@ const en = {
     closedNow: 'Closed now',
     until: 'until',
     today: 'Today',
+    replyHint: 'We reply during opening hours.',
+    walkIns: 'Walk-ins welcome — no appointment needed.',
   },
   footer: {
     tagline: 'Sharp looks, timeless craft.',
@@ -184,6 +186,8 @@ const bg: Dict = {
     closedNow: 'Затворено сега',
     until: 'до',
     today: 'Днес',
+    replyHint: 'Отговаряме в рамките на работното време.',
+    walkIns: 'Добре дошли и без час — не е нужна резервация.',
   },
   footer: {
     tagline: 'Остър стил, вечен занаят.',
@@ -271,6 +275,8 @@ const de: Dict = {
     closedNow: 'Derzeit geschlossen',
     until: 'bis',
     today: 'Heute',
+    replyHint: 'Wir antworten während der Öffnungszeiten.',
+    walkIns: 'Auch ohne Termin willkommen.',
   },
   footer: {
     tagline: 'Scharfer Look, zeitloses Handwerk.',
@@ -358,6 +364,8 @@ const fr: Dict = {
     closedNow: 'Fermé actuellement',
     until: "jusqu'à",
     today: "Aujourd'hui",
+    replyHint: "Nous répondons pendant les horaires d'ouverture.",
+    walkIns: 'Sans rendez-vous — bienvenue à tout moment.',
   },
   footer: {
     tagline: 'Style affûté, savoir-faire intemporel.',
@@ -445,6 +453,8 @@ const es: Dict = {
     closedNow: 'Cerrado ahora',
     until: 'hasta',
     today: 'Hoy',
+    replyHint: 'Respondemos durante el horario de apertura.',
+    walkIns: 'Sin cita previa — bienvenido en cualquier momento.',
   },
   footer: {
     tagline: 'Estilo afilado, oficio eterno.',

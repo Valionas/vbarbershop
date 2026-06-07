@@ -980,6 +980,8 @@ a {
 }
 
 .contact-card {
+  display: flex;
+  flex-direction: column;
   height: 100%;
   padding: 30px 28px;
   border: 1px solid var(--glass-border);
@@ -1077,10 +1079,12 @@ a {
   font-weight: 600;
 }
 
-/* Embedded mini-map in the Visit Us card */
+/* Embedded mini-map in the Visit Us card — stretches to absorb spare
+   height so all three card bottoms align. */
 .contact-card__map {
   width: 100%;
-  height: 175px;
+  flex: 1;
+  min-height: 175px;
   margin: 14px 0 6px;
   border: 1px solid var(--line);
   border-radius: 10px;
@@ -1091,15 +1095,49 @@ a {
   filter: grayscale(0.35) invert(0.88) hue-rotate(185deg) contrast(0.92);
 }
 
-/* Tap-to-call button */
+/* Tap-to-call + WhatsApp buttons */
 .contact-card__call {
   width: 100%;
-  margin: 14px 0 10px;
+  margin: 14px 0 0;
+}
+
+.contact-card__whatsapp {
+  width: 100%;
+  margin-top: 10px;
 }
 
 .contact-card__value--lg {
   font-size: 1.35rem;
   font-weight: 700;
+}
+
+/* Bottom-pinned block: keeps all card bottoms visually aligned */
+.contact-card__bottom {
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+
+.contact-card__hint {
+  margin: 8px 0 0;
+  font-size: 0.82rem;
+  font-weight: 300;
+  color: var(--muted);
+}
+
+.contact-card__hint--note {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: auto 0 0; /* stays pinned to the card bottom */
+}
+
+/* Hours rows spread to fill the card's middle band */
+.contact-card__hours {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .contact-card__title--gap {

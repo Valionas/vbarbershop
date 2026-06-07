@@ -35,6 +35,13 @@ const ClockIcon = () => (
   </svg>
 )
 
+const WhatsAppIcon = () => (
+  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
+    <path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2-1.42.25-.7.25-1.29.18-1.42-.08-.12-.27-.2-.57-.35Z" />
+    <path d="M12.05 2a9.9 9.9 0 0 0-9.9 9.9c0 1.75.46 3.45 1.32 4.95L2 22l5.3-1.39a9.87 9.87 0 0 0 4.74 1.21h.01a9.9 9.9 0 0 0 9.9-9.9 9.84 9.84 0 0 0-2.9-7A9.84 9.84 0 0 0 12.05 2Zm0 18.13h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.11.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38 8.22 8.22 0 0 1 8.23-8.22 8.17 8.17 0 0 1 5.82 2.41 8.17 8.17 0 0 1 2.4 5.82 8.22 8.22 0 0 1-8.22 8.23Z" />
+  </svg>
+)
+
 export default function Contact() {
   const { t } = useI18n()
   const tel = `tel:${brand.phone.replace(/\s/g, '')}`
@@ -100,10 +107,21 @@ export default function Contact() {
               <a href={tel} className="btn btn--primary contact-card__call">
                 {t.contact.callNow}
               </a>
-              <h3 className="contact-card__title contact-card__title--gap">{t.contact.write}</h3>
-              <p className="contact-card__value">
-                <a href={`mailto:${brand.email}`}>{brand.email}</a>
-              </p>
+              <a
+                href={brand.whatsapp}
+                target="_blank"
+                rel="noreferrer"
+                className="btn btn--ghost contact-card__whatsapp"
+              >
+                <WhatsAppIcon /> WhatsApp
+              </a>
+              <div className="contact-card__bottom">
+                <h3 className="contact-card__title">{t.contact.write}</h3>
+                <p className="contact-card__value">
+                  <a href={`mailto:${brand.email}`}>{brand.email}</a>
+                </p>
+                <p className="contact-card__hint">{t.contact.replyHint}</p>
+              </div>
             </div>
           </Reveal>
 
@@ -133,6 +151,9 @@ export default function Contact() {
                   </li>
                 ))}
               </ul>
+              <p className="contact-card__bottom contact-card__hint contact-card__hint--note">
+                ✂ {t.contact.walkIns}
+              </p>
             </div>
           </Reveal>
         </div>
